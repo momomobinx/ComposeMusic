@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build-pad:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -24,56 +24,13 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Build Pad APK
-        run: ./gradlew assemblePadRelease
+        run: ./gradlew build
 
       - name: Upload Pad APK
         uses: actions/upload-artifact@v4
         with:
-          name: Pad-App
-          path: app/build/outputs/apk/pad/release/app-pad-release.apk
+          name: App
+          path: app/build/outputs/apk/*.apk
 
-  build-watch:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
 
-      - name: Set up JDK
-        uses: actions/setup-java@v1
-        with:
-          java-version: 17
-
-      - name: Make Gradle executable
-        run: chmod +x ./gradlew
-
-      - name: Build Watch APK
-        run: ./gradlew assembleWatchRelease
-
-      - name: Upload Watch APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: Watch-App
-          path: app/build/outputs/apk/watch/release/app-watch-release.apk
-
-  build-tv:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up JDK
-        uses: actions/setup-java@v1
-        with:
-          java-version: 17
-
-      - name: Make Gradle executable
-        run: chmod +x ./gradlew
-
-      - name: Build TV APK
-        run: ./gradlew assembleTvRelease
-
-      - name: Upload TV APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: TV-App
-          path: app/build/outputs/apk/tv/release/app-tv-release.apk
+ 
