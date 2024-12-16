@@ -27,7 +27,7 @@ jobs:
         run: ./gradlew assemblePadRelease
 
       - name: Upload Pad APK
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: Pad-App
           path: app/build/outputs/apk/pad/release/app-pad-release.apk
@@ -50,7 +50,7 @@ jobs:
         run: ./gradlew assembleWatchRelease
 
       - name: Upload Watch APK
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: Watch-App
           path: app/build/outputs/apk/watch/release/app-watch-release.apk
@@ -73,7 +73,7 @@ jobs:
         run: ./gradlew assembleTvRelease
 
       - name: Upload TV APK
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: TV-App
           path: app/build/outputs/apk/tv/release/app-tv-release.apk
